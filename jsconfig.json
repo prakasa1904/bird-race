@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "module": "umd",
+    "checkJs": true,
+    "experimentalDecorators": true,
+    "target": "es2018",
+    "jsx": "react",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@store/*": ["src/redux/modules/*"]
+    }
+  },
+  "exclude": [
+    "bin",
+    "build*",
+    "config",
+    "coverage",
+    "docs",
+    "files",
+    "node_modules"
+  ]
+}
