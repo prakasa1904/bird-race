@@ -1,5 +1,5 @@
-import { Component } from "react";
-import { node, func } from "prop-types";
+import { Component } from 'react';
+import { node, func } from 'prop-types';
 
 class OnOffWrapper extends Component {
   constructor(props) {
@@ -13,11 +13,11 @@ class OnOffWrapper extends Component {
     const { onOffline, onOnline } = this.props;
 
     if (onOffline) {
-      window.addEventListener("offline", this.handleOffline);
+      window.addEventListener('offline', this.handleOffline);
     }
 
     if (onOnline) {
-      window.addEventListener("online", this.handleOnline);
+      window.addEventListener('online', this.handleOnline);
     }
   }
 
@@ -25,11 +25,11 @@ class OnOffWrapper extends Component {
     const { onOffline, onOnline } = this.props;
 
     if (onOffline && window.removeEventListener) {
-      window.removeEventListener("offline", this.handleOffline);
+      window.removeEventListener('offline', this.handleOffline);
     }
 
     if (onOnline && window.removeEventListener) {
-      window.removeEventListener("online", this.handleOnline);
+      window.removeEventListener('online', this.handleOnline);
     }
   }
 
@@ -63,13 +63,13 @@ class OnOffWrapper extends Component {
 OnOffWrapper.propTypes = {
   children: node,
   onOffline: func,
-  onOnline: func
+  onOnline: func,
 };
 
 OnOffWrapper.defaultProps = {
   children: null,
   onOffline: () => {},
-  onOnline: () => {}
+  onOnline: () => {},
 };
 
 export default OnOffWrapper;

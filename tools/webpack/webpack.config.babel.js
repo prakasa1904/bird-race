@@ -11,10 +11,9 @@ import TerserPlugin from 'terser-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import SimpleProgressWebpackPlugin from 'simple-progress-webpack-plugin';
 import safeParser from 'postcss-safe-parser';
-import webpack from 'webpack';
 import { ReactLoadablePlugin } from 'react-loadable/webpack';
 
-import { isDev, isProd, isVerbose, ifDev, ifProd, lessLoaders } from './utils';
+import { isDev, ifDev, ifProd, lessLoaders } from './utils';
 import { resolve as importResolver } from './import.resolver';
 
 const buildPath = './build/client';
@@ -202,7 +201,7 @@ const webpackConfig = {
             loader: 'file-loader',
             options: {
               limit: 1024,
-              name(file) {
+              name(_file) {
                 return ifDev('[name].[ext]', '[hash:8].[ext]');
               },
               publicPath: path.resolve(appRootDir.get()),

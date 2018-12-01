@@ -1,9 +1,6 @@
 import React from 'react';
-import { render } from 'react-dom';
 import { hot } from 'react-hot-loader';
-import Loadable from 'react-loadable';
 import { object } from 'prop-types';
-import { createBrowserHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 

@@ -1,8 +1,28 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { string, shape } from 'prop-types';
+import { Link } from 'react-router-dom';
+
+import { timeAgo } from '@helpers/dateTime';
 
 class HomeView extends React.Component {
+  static propTypes = {
+    location: shape({
+      search: string,
+    }).isRequired,
+  };
+
+  onClickDetailLomba = () => {
+    console.log('Show Detail Lomba !!!');
+  };
+
+  onClickEditLomba = () => {
+    console.log('Show Detail Lomba !!!');
+  };
+
   render() {
+    const { location } = this.props;
+    const search = location.search || '';
+
     return (
       <div className="row">
         <div className="col-lg-5 col-md-12 col-sm-12 mb-4">
@@ -16,129 +36,39 @@ class HomeView extends React.Component {
                   <img
                     src="https://designrevision.com/demo/shards-dashboard-lite/images/avatars/2.jpg"
                     alt="User avatar"
-                  />{' '}
+                  />
                 </div>
                 <div className="blog-comments__content">
                   <div className="blog-comments__meta text-muted">
-                    <a className="text-secondary" href="#">
-                      James Johnson
-                    </a>{' '}
-                    on
-                    <a className="text-secondary" href="#">
-                      Hello World!
-                    </a>
-                    <span className="text-muted">– 3 days ago</span>
+                    <Link className="text-secondary" to="/lomba/detail/lomba-burung-pertama">
+                      Lomba Burung Dara Pertama
+                    </Link>
+                    &nbsp;di&nbsp;
+                    <Link className="text-secondary" to={`/lomba/cari?wilayah=${search}`}>
+                      Trenggalek
+                    </Link>
+                    <span className="text-muted">&nbsp;–&nbsp;{timeAgo(new Date())}</span>
                   </div>
-                  <p className="m-0 my-1 mb-2 text-muted">Well, the way they make shows is, they make one show ...</p>
+                  <p className="m-0 my-1 mb-2 text-muted">Jumlah peserta 10</p>
                   <div className="blog-comments__actions">
                     <div className="btn-group btn-group-sm">
                       <button type="button" className="btn btn-white">
-                        <span className="text-success">
-                          <i className="material-icons">check</i>
-                        </span>{' '}
-                        Approve{' '}
+                        <span className="text-info">
+                          <i className="material-icons">description</i>
+                        </span>
+                        &nbsp;Lihat Detail
                       </button>
                       <button type="button" className="btn btn-white">
-                        <span className="text-danger">
-                          <i className="material-icons">clear</i>
-                        </span>{' '}
-                        Reject{' '}
+                        <span className="text-success">
+                          <i className="material-icons">person_add</i>
+                        </span>
+                        &nbsp;Daftar
                       </button>
                       <button type="button" className="btn btn-white">
                         <span className="text-light">
                           <i className="material-icons">more_vert</i>
-                        </span>{' '}
-                        Edit{' '}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="blog-comments__item d-flex p-3">
-                <div className="blog-comments__avatar mr-3">
-                  <img
-                    src="https://designrevision.com/demo/shards-dashboard-lite/images/avatars/1.jpg"
-                    alt="User avatar"
-                  />{' '}
-                </div>
-                <div className="blog-comments__content">
-                  <div className="blog-comments__meta text-muted">
-                    <a className="text-secondary" href="#">
-                      James Johnson
-                    </a>{' '}
-                    on
-                    <a className="text-secondary" href="#">
-                      Hello World!
-                    </a>
-                    <span className="text-muted">– 4 days ago</span>
-                  </div>
-                  <p className="m-0 my-1 mb-2 text-muted">
-                    After the avalanche, it took us a week to climb out. Now...
-                  </p>
-                  <div className="blog-comments__actions">
-                    <div className="btn-group btn-group-sm">
-                      <button type="button" className="btn btn-white">
-                        <span className="text-success">
-                          <i className="material-icons">check</i>
-                        </span>{' '}
-                        Approve{' '}
-                      </button>
-                      <button type="button" className="btn btn-white">
-                        <span className="text-danger">
-                          <i className="material-icons">clear</i>
-                        </span>{' '}
-                        Reject{' '}
-                      </button>
-                      <button type="button" className="btn btn-white">
-                        <span className="text-light">
-                          <i className="material-icons">more_vert</i>
-                        </span>{' '}
-                        Edit{' '}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="blog-comments__item d-flex p-3">
-                <div className="blog-comments__avatar mr-3">
-                  <img
-                    src="https://designrevision.com/demo/shards-dashboard-lite/images/avatars/3.jpg"
-                    alt="User avatar"
-                  />{' '}
-                </div>
-                <div className="blog-comments__content">
-                  <div className="blog-comments__meta text-muted">
-                    <a className="text-secondary" href="#">
-                      James Johnson
-                    </a>{' '}
-                    on
-                    <a className="text-secondary" href="#">
-                      Hello World!
-                    </a>
-                    <span className="text-muted">– 5 days ago</span>
-                  </div>
-                  <p className="m-0 my-1 mb-2 text-muted">
-                    My money's in that office, right? If she start giving me...
-                  </p>
-                  <div className="blog-comments__actions">
-                    <div className="btn-group btn-group-sm">
-                      <button type="button" className="btn btn-white">
-                        <span className="text-success">
-                          <i className="material-icons">check</i>
-                        </span>{' '}
-                        Approve{' '}
-                      </button>
-                      <button type="button" className="btn btn-white">
-                        <span className="text-danger">
-                          <i className="material-icons">clear</i>
-                        </span>{' '}
-                        Reject{' '}
-                      </button>
-                      <button type="button" className="btn btn-white">
-                        <span className="text-light">
-                          <i className="material-icons">more_vert</i>
-                        </span>{' '}
-                        Edit{' '}
+                        </span>
+                        Edit
                       </button>
                     </div>
                   </div>

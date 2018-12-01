@@ -10,11 +10,8 @@ const browserHistory = createBrowserHistory();
 const store = configureStore(window.__data, browserHistory);
 
 global.terpusatBurung = store;
-browserHistory.listen(location => {
-  /**
-   * On location changes Do Something ....
-   */
-});
+// browserHistory.listen(location => {
+// });
 
 Loadable.preloadReady().then(() => {
   const container = document.getElementById('devetek');

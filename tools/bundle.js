@@ -1,10 +1,9 @@
 /**
  * Creates application bundles from the source files.
  */
-import webpack from "webpack";
+import webpack from 'webpack';
 
-const debug = require("debug")("webpack:bundle");
-const dir = process.env.DIR;
+const debug = require('debug')('webpack:bundle');
 
 async function bundle() {
   const config = require(`./webpack/webpack.config.babel`).default;

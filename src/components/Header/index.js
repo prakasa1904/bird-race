@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { bool, string, number, object, node, func, shape } from 'prop-types';
+import { func } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -47,10 +47,9 @@ class Header extends Component {
                 className={`nav-item dropdown ${showProfileMenu ? 'show' : ''}`}
                 onClick={this.onToggleShowProfileMenu}
               >
-                <a
+                <Link
                   className="nav-link dropdown-toggle text-nowrap px-3"
-                  data-toggle="dropdown"
-                  href="#"
+                  to="/"
                   role="button"
                   aria-haspopup="true"
                   aria-expanded="false"
@@ -61,30 +60,27 @@ class Header extends Component {
                     alt="User Avatar"
                   />
                   <span className="d-none d-md-inline-block">Sierra Brooks</span>
-                </a>
+                </Link>
                 <div
                   className={`dropdown-menu dropdown-menu-small ${showProfileMenu ? 'show' : ''}`}
                   style={{ display: showProfileMenu ? 'block' : 'none' }}
                 >
-                  <a className="dropdown-item" href="/profile">
-                    <i className="material-icons">&#xE7FD;</i> Profile
-                  </a>
-                  <a className="dropdown-item" href="components-blog-posts.html">
-                    <i className="material-icons">vertical_split</i> Blog Posts
-                  </a>
-                  <a className="dropdown-item" href="add-new-post.html">
-                    <i className="material-icons">note_add</i> Add New Post
-                  </a>
+                  <Link className="dropdown-item" to="/saya">
+                    <i className="material-icons">&#xE7FD;</i> Saya
+                  </Link>
+                  <Link className="dropdown-item" to="/lomba/tambah">
+                    <i className="material-icons">note_add</i> Buat Lomba
+                  </Link>
                   <div className="dropdown-divider" />
-                  <a className="dropdown-item text-danger" href="#">
-                    <i className="material-icons text-danger">&#xE879;</i> Logout{' '}
-                  </a>
+                  <Link className="dropdown-item text-danger" to="/keluar">
+                    <i className="material-icons text-danger">&#xE879;</i> Keluar{' '}
+                  </Link>
                 </div>
               </li>
             </ul>
             <nav className="nav">
               <Link
-                to="#"
+                to="/"
                 onClick={this.onToggleMobileSidebar}
                 className="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left"
               >
@@ -101,19 +97,14 @@ class Header extends Component {
 Header.state = {};
 
 Header.propTypes = {
-  showMobileMenu: bool.isRequired,
   onUpdateMobileMenuStatus: func.isRequired,
 };
-
-const mapStateToProps = ({ app }) => ({
-  showMobileMenu: app.showMobileMenu || false,
-});
 
 const mapDispatchToProps = {
   onUpdateMobileMenuStatus: updateMobileMenuStatus,
 };
 
 export default connect(
-  mapStateToProps,
+  undefined,
   mapDispatchToProps,
 )(Header);

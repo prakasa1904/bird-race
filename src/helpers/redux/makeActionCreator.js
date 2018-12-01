@@ -12,6 +12,7 @@
  */
 
 export default function makeActionCreator(type) {
+  // eslint-disable-next-line func-names
   return function(payload) {
     return {
       type,

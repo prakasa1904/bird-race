@@ -7,21 +7,20 @@ import Layout from '@components/Layout';
 /**
  * List of routes
  */
-import { HomeComponent } from './Home';
-
-/**
- * Routes that requireLogin
- */
-// const HelpFallback = requireLogin(HelpComponent);
-
-/**
- * End of requireLogin routes
- */
+import { HomeComponent } from '@routes/Home';
+import { ProfileComponent } from '@routes/Profile';
 
 const Routes = ({ history, location, match }) => (
   <Layout history={history} location={location} match={match}>
     <Switch>
       <Route exact path="/" component={HomeComponent} />
+      <Route exact path="/saya" component={ProfileComponent} />
+      <Route exact path="/lomba" component={HomeComponent} />
+      <Route exact path="/lomba/cari" component={HomeComponent} />
+      <Route exact path="/lomba/tambah" component={HomeComponent} />
+      <Route exact path="/lomba/ubah" component={HomeComponent} />
+      <Route exact path="/keluar" component={HomeComponent} />
+      <Route component={HomeComponent} />
     </Switch>
   </Layout>
 );
