@@ -2,7 +2,7 @@ import React from 'react';
 import { string, shape } from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { timeAgo } from '@helpers/dateTime';
+import { date, timeAgo } from '@helpers/dateTime';
 
 class HomeView extends React.Component {
   static propTypes = {
@@ -15,8 +15,16 @@ class HomeView extends React.Component {
     console.log('Show Detail Lomba !!!');
   };
 
+  onClickJoinLomba = () => {
+    console.log('Join Lomba !!!');
+  };
+
   onClickEditLomba = () => {
-    console.log('Show Detail Lomba !!!');
+    console.log('Edit Lomba !!!');
+  };
+
+  onClickLombaLainnya = () => {
+    console.log('Lihat Lomba Lainnya !!!');
   };
 
   render() {
@@ -32,12 +40,6 @@ class HomeView extends React.Component {
             </div>
             <div className="card-body p-0">
               <div className="blog-comments__item d-flex p-3">
-                <div className="blog-comments__avatar mr-3">
-                  <img
-                    src="https://designrevision.com/demo/shards-dashboard-lite/images/avatars/2.jpg"
-                    alt="User avatar"
-                  />
-                </div>
                 <div className="blog-comments__content">
                   <div className="blog-comments__meta text-muted">
                     <Link className="text-secondary" to="/lomba/detail/lomba-burung-pertama">
@@ -47,24 +49,24 @@ class HomeView extends React.Component {
                     <Link className="text-secondary" to={`/lomba/cari?wilayah=${search}`}>
                       Trenggalek
                     </Link>
-                    <span className="text-muted">&nbsp;–&nbsp;{timeAgo(new Date())}</span>
+                    <span className="text-muted">&nbsp;–&nbsp;{timeAgo(date('Selasa, 18 Januari 2019').new)}</span>
                   </div>
                   <p className="m-0 my-1 mb-2 text-muted">Jumlah peserta 10</p>
                   <div className="blog-comments__actions">
                     <div className="btn-group btn-group-sm">
-                      <button type="button" className="btn btn-white">
+                      <button type="button" className="btn btn-white" onClick={this.onClickDetailLomba}>
                         <span className="text-info">
                           <i className="material-icons">description</i>
                         </span>
                         &nbsp;Lihat Detail
                       </button>
-                      <button type="button" className="btn btn-white">
+                      <button type="button" className="btn btn-white" onClick={this.onClickJoinLomba}>
                         <span className="text-success">
                           <i className="material-icons">person_add</i>
                         </span>
                         &nbsp;Daftar
                       </button>
-                      <button type="button" className="btn btn-white">
+                      <button type="button" className="btn btn-white" onClick={this.onClickEditLomba}>
                         <span className="text-light">
                           <i className="material-icons">more_vert</i>
                         </span>
@@ -78,7 +80,7 @@ class HomeView extends React.Component {
             <div className="card-footer border-top">
               <div className="row">
                 <div className="col text-center view-report">
-                  <button type="submit" className="btn btn-white">
+                  <button type="submit" className="btn btn-white" onClick={this.onClickLombaLainnya}>
                     Lomba Lainnya
                   </button>
                 </div>

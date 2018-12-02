@@ -1,5 +1,8 @@
 import { makeActionCreator } from '@helpers/redux';
 
+export const APP_LOADING = '@@app/APP_LOADING';
+export const updateAppLoading = makeActionCreator(APP_LOADING);
+
 export const APP_TITLE = '@@app/APP_TITLE';
 export const updateAppTitle = makeActionCreator(APP_TITLE);
 

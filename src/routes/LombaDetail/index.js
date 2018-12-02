@@ -29,8 +29,8 @@ Loading.defaultProps = {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export const HomeComponent = Loadable({
-  loader: () => import(/* webpackChunkName: "home" */ '../Home/components/View'),
+export const LombaDetailComponent = Loadable({
+  loader: () => import(/* webpackChunkName: "lombadetail" */ '../LombaDetail/components/View'),
   loading: Loading,
   delay: 0, // delay in milliseconds, useful for suspense
 });

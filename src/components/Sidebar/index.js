@@ -4,9 +4,22 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { updateMobileMenuStatus } from '@store/app';
+import { preventDefault } from '@helpers/DOM';
 
 class Sidebar extends Component {
   onToggleMobileSidebar = () => {
+    const { onUpdateMobileMenuStatus } = this.props;
+
+    onUpdateMobileMenuStatus(false);
+  };
+
+  onEnterSearch = e => {
+    if (e.key === 'Enter') {
+      console.log('Go To Search Page !!!');
+    }
+  };
+
+  onClickItemMenu = () => {
     const { onUpdateMobileMenuStatus } = this.props;
 
     onUpdateMobileMenuStatus(false);
@@ -43,7 +56,10 @@ class Sidebar extends Component {
                   </button>
                 </nav>
               </div>
-              <form action="/lomba" className="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+              <form
+                onSubmit={preventDefault}
+                className="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none"
+              >
                 <div className="input-group input-group-seamless ml-3">
                   <div className="input-group-prepend">
                     <div className="input-group-text">
@@ -55,19 +71,20 @@ class Sidebar extends Component {
                     type="text"
                     placeholder="Cari lomba burung..."
                     aria-label="Search"
-                  />{' '}
+                    onKeyPress={this.onEnterSearch}
+                  />
                 </div>
               </form>
               <div className="nav-wrapper">
                 <ul className="nav flex-column">
                   <li className="nav-item">
-                    <Link className="nav-link " to="/">
+                    <Link className="nav-link " to="/" onClick={this.onClickItemMenu}>
                       <i className="material-icons">dashboard</i>
                       <span>Halaman Depan</span>
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link " to="/lomba/tambah">
+                    <Link className="nav-link " to="/lomba/tambah" onClick={this.onClickItemMenu}>
                       <i className="material-icons">note_add</i>
                       <span>Buat Lomba</span>
                     </Link>

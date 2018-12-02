@@ -47,20 +47,14 @@ class Header extends Component {
                 className={`nav-item dropdown ${showProfileMenu ? 'show' : ''}`}
                 onClick={this.onToggleShowProfileMenu}
               >
-                <Link
-                  className="nav-link dropdown-toggle text-nowrap px-3"
-                  to="/"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+                <div className="nav-link dropdown-toggle text-nowrap px-3" aria-haspopup="true" aria-expanded="false">
                   <img
                     className="user-avatar rounded-circle mr-2"
                     src="https://designrevision.com/demo/shards-dashboard-lite/images/avatars/0.jpg"
                     alt="User Avatar"
                   />
                   <span className="d-none d-md-inline-block">Sierra Brooks</span>
-                </Link>
+                </div>
                 <div
                   className={`dropdown-menu dropdown-menu-small ${showProfileMenu ? 'show' : ''}`}
                   style={{ display: showProfileMenu ? 'block' : 'none' }}

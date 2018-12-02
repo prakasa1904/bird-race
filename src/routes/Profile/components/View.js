@@ -26,23 +26,6 @@ class ProfileView extends React.Component {
               </button>
             </div>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item px-4">
-                <div className="progress-wrapper">
-                  <strong className="text-muted d-block mb-2">Workload</strong>
-                  <div className="progress progress-sm">
-                    <div
-                      className="progress-bar bg-primary"
-                      role="progressbar"
-                      aria-valuenow="74"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                      style={{ width: '74%' }}
-                    >
-                      <span className="progress-value">74%</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
               <li className="list-group-item p-4">
                 <strong className="text-muted d-block mb-2">Description</strong>
                 <span>

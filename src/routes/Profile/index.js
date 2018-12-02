@@ -1,6 +1,8 @@
 import React from 'react';
-import { bool, number, object } from 'prop-types';
+import { bool, object } from 'prop-types';
 import Loadable from 'react-loadable';
+
+import LoadingWrapper from '@components/Loading';
 
 const Loading = props => {
   const { timedOut, error, pastDelay } = props;
@@ -10,16 +12,20 @@ const Loading = props => {
   }
 
   if (pastDelay) {
-    return <div>Loading ....</div>;
+    return <LoadingWrapper />;
   }
 
   return null;
 };
 
 Loading.propTypes = {
-  error: object.isRequired,
+  error: object,
   pastDelay: bool.isRequired,
-  timedOut: number.isRequired,
+  timedOut: bool.isRequired,
+};
+
+Loading.defaultProps = {
+  error: null,
 };
 
 // eslint-disable-next-line import/prefer-default-export

@@ -1,6 +1,6 @@
 import appReducer from './reducer';
 
-export { updateAppTitle, updateMobileMenuStatus } from './actions';
+export { updateAppLoading, updateAppTitle, updateMobileMenuStatus } from './actions';
 
 export { getInitialState } from './reducer';
 

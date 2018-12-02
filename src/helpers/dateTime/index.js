@@ -1,2 +1,2 @@
-// eslint-disable-next-line import/prefer-default-export
 export { default as timeAgo } from './timeAgo';
+export { default as date } from './date';
